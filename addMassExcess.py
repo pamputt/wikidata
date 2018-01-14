@@ -96,10 +96,10 @@ def add_quantity_claim(item, prop, data):
     value, uncert = float(value), float(uncert)
     claim = pywikibot.Claim(repo, prop)
     unit_item = pywikibot.ItemPage(repo, unit)
-    entity_helper_string = "http://www.wikidata.org/entity/Q483261".format()
+    entity_helper_string = "http://www.wikidata.org/entity/Q28719934".format()
     wb_quant = pywikibot.WbQuantity(value, entity_helper_string, uncert)
     claim.setTarget(wb_quant)
-    item.addClaim(claim, bot=True, summary="Adding atomic mass claim from AME.")
+    item.addClaim(claim, bot=True, summary="Adding mass excess claim from AME.")
     return claim
 
 
