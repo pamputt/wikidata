@@ -113,16 +113,19 @@ def add_qualifier(claim, qualifier_property, qualifier_item):
 def create_source_claim(claim, source_map):
     source_claims = []
     for src_prop in source_map.keys():
-        target_type, source_value = source_map[src_prop]
-        print('target: {0} , source: {1}, prop: {2}').format(target_type, source_value,src_prop)
-        source_claim = pywikibot.Claim(repo, src_prop, isReference=True)
+        target_type, source_values = source_map[src_prop]
+        print('target: {0} , source: {1}, prop: {2}').format(target_type, source_values, src_prop)
+
         if target_type == 'item':
-            for qid in source_value:
+            for qid in source_values:
+                source_claim = pywikibot.Claim(repo, src_prop, isReference=True)
                 source_page = pywikibot.ItemPage(repo, qid)
                 source_claim.setTarget(source_page)
                 source_claims.append(source_claim)
         else:
-            source_claim.setTarget(source_value)
+            source_claim = pywikibot.Claim(repo, src_prop, isReference=True)
+            source_claim.setTarget(source_values)
+            source_claims.append(source_claim)
         source_claims.append(source_claim)
     claim.addSources(source_claims, bot=True)
     return True
