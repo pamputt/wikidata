@@ -104,6 +104,7 @@ int main(int argc, char **argv) {
 
 	if( !QID.back().empty() )
 	  outfile << setprecision(12) << QID.back() << "," << name.back() << ","
+		  << Z.back()+N.back() << ","
 		  << massExcess.back() << "," << massExcessUnc.back() << "," << massExcessEst.back() << ","
 		  << bindingEnergy.back() << "," << bindingEnergyUnc.back() << "," << bindingEnergyEst.back() << ","
 		  << atomicMass.back() << "," << atomicMassUnc.back() << "," << atomicMassEst.back() << endl;
