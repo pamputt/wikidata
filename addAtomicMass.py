@@ -136,7 +136,7 @@ def process_AME_data(filename):
     with open(filename) as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            nuclide_qid, nuclide_name, massExcess, massExcessUnc, massExcessEst, bindingEnergy, bindingEnergyUnc, bindingEnergyEst, atomicMass, atomicMassUnc, atomicMassEst = row
+            nuclide_qid, nuclide_name, A, massExcess, massExcessUnc, massExcessEst, bindingEnergy, bindingEnergyUnc, bindingEnergyEst, atomicMass, atomicMassUnc, atomicMassEst = row
             nuclide = get_item(nuclide_qid)
             if atomicMassUnc == 'None':
                 atomicMassUnc = 0.0
