@@ -1,3 +1,7 @@
+/*
+ * g++ -std=c++11 -o parser parseMassEvaluation.cpp
+ */
+
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -66,6 +70,7 @@ int main(int argc, char **argv) {
   }
 
   ofstream outfile("nuclearData.csv");
+  ofstream outfile2("nuclearData2.csv");
 
   vector <string> QID, name;
   vector < int > N, Z, A;
@@ -108,6 +113,12 @@ int main(int argc, char **argv) {
 		  << massExcess.back() << "," << massExcessUnc.back() << "," << massExcessEst.back() << ","
 		  << bindingEnergy.back() << "," << bindingEnergyUnc.back() << "," << bindingEnergyEst.back() << ","
 		  << atomicMass.back() << "," << atomicMassUnc.back() << "," << atomicMassEst.back() << endl;
+	else {
+	  outfile2  << setprecision(12) << Z.back() << "," << N.back() << ","
+		    << massExcess.back() << "," << massExcessUnc.back() << "," << massExcessEst.back() << ","
+		    << bindingEnergy.back() << "," << bindingEnergyUnc.back() << "," << bindingEnergyEst.back() << ","
+		    << atomicMass.back() << "," << atomicMassUnc.back() << "," << atomicMassEst.back() << endl;
+	}
 	    
 	// if(atomicMassEst.back())
 	//   cout << setprecision(12) <<  Z.back() << "_" << A.back() << ", " << atomicMass.back() << " +- " << atomicMassUnc.back() << " !!!" << endl;
