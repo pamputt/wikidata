@@ -1,4 +1,6 @@
 # -*- coding: utf-8  -*-
+
+# Based on https://github.com/arthurpsmith/wikidata-tools/tree/master/APSbot
 import pywikibot
 import csv
 
